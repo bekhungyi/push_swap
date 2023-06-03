@@ -6,11 +6,24 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 16:01:50 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/02 17:08:56 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/03 18:15:25 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int		get_stack_size(t_node *addr)
+{
+	int	size;
+
+	size = 1;
+	while (addr->next)
+	{
+		size++;
+		addr = addr->next;
+	}
+	return (size);
+}
 
 t_node	*find_last_node(t_node *addr)
 {

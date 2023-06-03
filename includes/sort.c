@@ -6,8 +6,24 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 23:55:56 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/02 23:57:35 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/03 18:51:42 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap"
+#include "../push_swap.h"
+
+void	sort_3(t_node **a, int size)
+{
+	if (size == 2)
+		ra(a);
+	if (size == 3)
+	{
+		while (check_sort(*a) == 0)
+		{
+			if ((*a)->num > (*a)->next->num)
+				ra(a);
+			else
+				sa(a);
+		}
+	}
+}

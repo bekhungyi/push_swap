@@ -6,7 +6,7 @@
 #    By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/24 15:41:48 by bhung-yi          #+#    #+#              #
-#    Updated: 2023/06/02 17:08:40 by bhung-yi         ###   ########.fr        #
+#    Updated: 2023/06/03 18:33:11 by bhung-yi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ LIBFTNAME	= libft.a
 INCLUDES	= 	./includes/stack_init.c \
 				./includes/checks.c \
 				./includes/make_node.c \
+				./includes/sort.c \
+				./includes/rotate.c \
+				./includes/swap.c \
 
 
 %.o: %.c
