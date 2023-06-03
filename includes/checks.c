@@ -6,11 +6,22 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:05:23 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/02 18:38:12 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/03 00:11:07 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	check_sort(t_node *a)
+{
+	while (a->next)
+	{
+		if (a->num > a->next->num)
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
 
 int	check_num(char *str)
 {
