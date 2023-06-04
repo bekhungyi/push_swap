@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 23:55:56 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/04 18:19:28 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/05 02:59:08 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,34 @@ void sort_3(t_node **a, int size)
 	}
 }
 
-void sort_5(t_node **a, t_node **b)
+void sort_5(t_node **a, t_node **b, int size)
 {
 	int i;
-	int size;
+	t_node *lowest_node;
+	t_node *highest_node;
 
-	i = 0;
-	size = get_stack_size(*a);
-	while (i < size - 3)
-	{
-		if ((*a)->num == 0 || (*a)->num == 1)
+	lowest_node = find_lowest(*a);
+	highest_node = find_highest(*a);
+	while (size > 3)
+	{	
+		if ((*a)->num == lowest_node->num || (*a)->num == highest_node->num)
+		{
 			pb(a, b);
+			size--;
+		}
 		else
 			ra(a);
-		i++;
 	}
 	sort_3(a, 3);
-	while (*b)
+	pa(a, b);
+	if (!check_sort(*a) && *b)
 	{
-		if ((*b)->num == 0)
-			pa(a, b);
-		else
-			rb(b);
+		ra(a);
+		pa(a, b);
+	}
+	else if (*b)
+	{
+		pa(a, b);
+		ra(a);
 	}
 }

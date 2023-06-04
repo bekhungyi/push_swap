@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 19:24:45 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/03 19:29:24 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/05 01:42:21 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ void	push(t_node **a, t_node **b)
 	first_node = *a;
 	second_node = *b;
 	*a = first_node->next;
-	(*a)->prev = NULL;
+	if (*a != NULL)
+		(*a)->prev = NULL;
 	*b = first_node;
 	first_node->prev = NULL;
 	first_node->next = second_node;
-	second_node->prev = first_node;
+	if (second_node != NULL)
+		second_node->prev = first_node;
 }
 
 void	pa(t_node **a, t_node **b)

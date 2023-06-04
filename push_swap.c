@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:41:32 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/03 23:32:13 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/05 02:46:59 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || av[1][0] == '\0')
+	{
+		write(2, "Error\n", 6);
 		return (0);
+	}
 	else if (ac == 2)
 		av = ft_split (av[1], ' ');
 	stack_init (&a, av + 1);
@@ -48,7 +51,7 @@ int	main(int ac, char **av)
 		if (size <= 3)
 			sort_3(&a, size);
 		else if (size <= 5)
-			sort_5(&a, &b);
+			sort_5(&a, &b, size);
 		// else
 		// 	sort_100(&a, &b);
 	

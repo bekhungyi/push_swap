@@ -6,7 +6,7 @@
 #    By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/24 15:41:48 by bhung-yi          #+#    #+#              #
-#    Updated: 2023/06/04 18:19:50 by bhung-yi         ###   ########.fr        #
+#    Updated: 2023/06/05 00:46:05 by bhung-yi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,11 @@ INCLUDES	= 	./includes/stack_init.c \
 				./includes/checks.c \
 				./includes/check_utils.c \
 				./includes/make_node.c \
-				./includes/sort.c \
 				./includes/rotate.c \
 				./includes/rev_rotate.c \
 				./includes/push.c \
-				./includes/swap.c
+				./includes/swap.c \
+				./includes/small_sort.c
 
 
 %.o: %.c

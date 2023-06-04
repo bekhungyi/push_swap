@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:41:51 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/04 18:19:25 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/05 01:29:58 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ int		check_sort(t_node *a);
 int		get_stack_size(t_node *addr);
 t_node	*find_last_node(t_node *addr);
 t_node	*find_highest(t_node *a);
+t_node	*find_lowest(t_node *a);
 
 void	sort_3(t_node **a, int size);
-void	sort_5(t_node **a, t_node **b);
+void	sort_5(t_node **a, t_node **b, int size);
 
 void	ra(t_node **a);
 void	rb(t_node **b);
