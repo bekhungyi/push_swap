@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 14:44:17 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/06 15:10:07 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:20:33 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 void	set_current_position(t_node *stack)
 {
 	int	i;
-	int	centerline;
+	int	median;
 
 	i = 0;
-	if (NULL == stack)
+	if (stack == NULL)
 		return ;
-	centerline = get_stack_size(stack) / 2;
+	median = get_stack_size(stack) / 2;
 	while (stack)
 	{
 		stack->current_position = i;
-		if (i <= centerline)
+		if (i <= median)
 			stack->above_median = true;
 		else
 			stack->above_median = false;
@@ -35,23 +35,23 @@ void	set_current_position(t_node *stack)
 
 void	set_target_node(t_node *a, t_node *b)
 {
-	t_node	*current_a;
+	t_node	*current;
 	t_node	*target_node;
-	long			best_match_index;
+	long	best_match_index;
 
 	while (b)
 	{
 		best_match_index = LONG_MAX;
-		current_a = a;
-		while (current_a)
+		current = a;
+		while (current)
 		{
-			if (current_a->num > b->num
-				&& current_a->num < best_match_index)
+			if (current->num > b->num
+				&& current->num < best_match_index)
 			{
-				best_match_index = current_a->num;
-				target_node = current_a;
+				best_match_index = current->num;
+				target_node = current;
 			}
-			current_a = current_a->next;
+			current = current->next;
 		}
 		if (LONG_MAX == best_match_index)
 			b->target_node = find_lowest(a);
@@ -83,8 +83,8 @@ void	set_price(t_node *a, t_node *b)
 
 void	set_cheapest(t_node *b)
 {
-	long			best_match_value;
 	t_node	*best_match_node;
+	long	best_match_value;
 
 	if (NULL == b)
 		return ;

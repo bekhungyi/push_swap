@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mid_sort.c                                         :+:      :+:    :+:   */
+/*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 22:49:33 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/06 15:12:24 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:18:16 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_node	*return_cheapest(t_node *stack)
+t_node	*find_cheapest(t_node *stack)
 {
 	if (NULL == stack)
 		return (NULL);
@@ -64,11 +64,11 @@ void	finish_rotation(t_node **stack, t_node *top_node, char stack_name)
 	}
 }
 
-static void	move_nodes(t_node **a, t_node **b)
+void	move_nodes(t_node **a, t_node **b)
 {
 	t_node	*cheapest_node;
 
-	cheapest_node = return_cheapest(*b);
+	cheapest_node = find_cheapest(*b);
 	if (cheapest_node->above_median
 		&& cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node);
