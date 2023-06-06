@@ -1,51 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 18:23:51 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/03 18:32:01 by bhung-yi         ###   ########.fr       */
+/*   Created: 2023/06/03 19:13:19 by bhung-yi          #+#    #+#             */
+/*   Updated: 2023/06/06 15:44:55 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    swap(t_node **addr)
+void	reverse_rotate(t_node **addr)
 {
 	t_node	*first_node;
-	t_node	*second_node;
-	t_node	*third_node;
+	t_node	*last_node;
 
 	if (*addr == NULL || (*addr)->next == NULL)
 		return ;
 	first_node = *addr;
-	second_node = first_node->next;
-	third_node = second_node->next;
-	*addr = second_node;
-	second_node->prev = NULL;
-	second_node->next = first_node;
-	first_node->prev = second_node;
-	first_node->next = third_node;
-	third_node->prev = first_node;
+	last_node = find_last_node(*addr);
+	*addr = last_node;
+	last_node->prev->next = NULL;
+	last_node->prev = NULL;
+	last_node->next = first_node;
+	first_node->prev = last_node;
 }
 
-void	sa(t_node **a)
+void	rra(t_node **a)
 {
-	swap(a);
-	ft_printf("sa\n");
+	reverse_rotate(a);
+	ft_putstr("rra\n");
 }
 
-void	sb(t_node **b)
+void	rrb(t_node **b)
 {
-	swap(b);
-	ft_printf("sb\n");
+	reverse_rotate(b);
+	ft_putstr("rrb\n");
 }
 
-void	ss(t_node **a, t_node **b)
+void	rrr(t_node **a, t_node **b)
 {
-	swap(a);
-	swap(b);
-	ft_printf("ss\n");
+	reverse_rotate(a);
+	reverse_rotate(b);
+	ft_putstr("rrr\n");
 }

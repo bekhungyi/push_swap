@@ -1,81 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 17:37:42 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/02 18:41:02 by bhung-yi         ###   ########.fr       */
+/*   Created: 2023/06/06 15:37:06 by bhung-yi          #+#    #+#             */
+/*   Updated: 2023/06/06 15:49:17 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdbool.h>
+#include "../push_swap.h"
 
-/*
-static	size_t	countwords(char const *s, char c)
+void	ft_putstr(char *s)
 {
-	size_t	i;
-	size_t	count;
-
-	i = 0;
-	count = 0;
-	while (s[i] != '\0')
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != 0)
-			count++;
-		while (s[i] != c && s[i])
-			i++;
+		write(1, &*s, 1);
+		s++;
 	}
-	return (count);
 }
 
-static char	**setup(char const *s, char c)
+long	ft_atoi(const char *str)
 {
-	char	**split;
+	int		sign;
+	long	value;
 
-	if (!s)
-		return (0);
-	split = (char **)malloc((countwords(s, c) + 1) * sizeof(char *));
-	if (!split)
-		return (0);
-	return (split);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**split;
-	size_t	start;
-	size_t	end;
-	size_t	i;
-
-	split = setup(s, c);
-	if (!split)
-		return (0);
-	start = 0;
-	end = 0;
-	i = 0;
-	while (i < countwords(s, c))
+	sign = 1;
+	value = 0;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
 	{
-		while (s[start] == c)
-			start++;
-		end = start;
-		while (s[end] != c && s[end])
-			end++;
-		split[i] = ft_substr(s, start, end - start);
-		start = end;
-		i++;
+		value = value * 10 + (*str - '0');
+		str++;
 	}
-	split[i] = 0;
-	return (split);
+	return (value * sign);
 }
-*/
-// --------------------------- //
 
-static int	count_words(char *str, char separator)
+int	count_words(char *str, char separator)
 {
 	int		count;
 	bool	inside_word;
@@ -99,7 +66,7 @@ static int	count_words(char *str, char separator)
 	return (count);
 }
 
-static char	*get_next_word(char *str, char separator)
+char	*get_next_word(char *str, char separator)
 {
 	static int	cursor = 0;
 	char		*next_str;

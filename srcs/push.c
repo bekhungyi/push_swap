@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 19:24:45 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/05 01:42:21 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/06 15:44:41 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void	push(t_node **a, t_node **b)
 void	pa(t_node **a, t_node **b)
 {
 	push(b, a);
-	ft_printf("pa\n");
+	ft_putstr("pa\n");
 }
 
 void	pb(t_node **a, t_node **b)
 {
 	push(a, b);
-	ft_printf("pb\n");
+	ft_putstr("pb\n");
 }

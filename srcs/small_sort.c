@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 23:55:56 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/05 02:59:08 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:47:17 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void sort_3(t_node **a, int size)
 
 void sort_5(t_node **a, t_node **b, int size)
 {
-	int i;
 	t_node *lowest_node;
 	t_node *highest_node;
 
@@ -50,14 +49,23 @@ void sort_5(t_node **a, t_node **b, int size)
 	}
 	sort_3(a, 3);
 	pa(a, b);
-	if (!check_sort(*a) && *b)
+	if (!check_sort(*a))
 	{
 		ra(a);
-		pa(a, b);
+		if (*b)
+			pa(a, b);
 	}
 	else if (*b)
 	{
 		pa(a, b);
 		ra(a);
 	}
+}
+
+void	small_sort(t_node **a, t_node **b, int size)
+{
+	if (size == 2 || size == 3)
+		sort_3(a, size);
+	else if (size == 4 || size == 5)
+		sort_5(a, b, size);
 }

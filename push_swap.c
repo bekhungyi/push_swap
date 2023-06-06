@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:41:32 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/05 02:46:59 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/06 15:45:55 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,12 @@ int	main(int ac, char **av)
 	if (!check_sort(a))
 	{
 		size = get_stack_size(a);
-		if (size <= 3)
-			sort_3(&a, size);
-		else if (size <= 5)
-			sort_5(&a, &b, size);
-		// else
-		// 	sort_100(&a, &b);
-	
+		if (size <= 5)
+			small_sort(&a, &b, size);
+		else
+			big_sort(&a, &b, size);
 	}
 	else
-		ft_printf ("Sorted.\n");
-	// print_stack(a, b);
+		ft_putstr ("Sorted.\n");
 	return (1);
 }

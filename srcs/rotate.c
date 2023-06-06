@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 17:53:11 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/03 18:13:52 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/06 15:45:08 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ void	rotate(t_node **addr)
 void	ra(t_node **a)
 {
 	rotate(a);
-	ft_printf("ra\n");
+	ft_putstr("ra\n");
 }
 
 void	rb(t_node **b)
 {
 	rotate(b);
-	ft_printf("rb\n");
+	ft_putstr("rb\n");
 }
 
 void	rr(t_node **a, t_node **b)
 {
 	rotate(a);
 	rotate(b);
-	ft_printf("rr\n");
+	ft_putstr("rr\n");
 }
