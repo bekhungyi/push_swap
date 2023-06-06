@@ -2,3 +2,4 @@ push_swap_test.sh
 traces.txt
 checker_Mac
 .vscode/
+.DS_Store
