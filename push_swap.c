@@ -6,11 +6,12 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:41:32 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/06/06 15:45:55 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/06/09 23:15:44 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
+#include <string.h>
 
 // void	print_stack(t_node *a, t_node *b)
 // {
@@ -55,5 +56,10 @@ int	main(int ac, char **av)
 	}
 	else
 		ft_putstr ("Sorted.\n");
+	// char *str;
+
+	// str = strdup("Hello");
+	// str = strdup("Hello");
+	// system("leaks -q push_swap");
 	return (1);
 }
